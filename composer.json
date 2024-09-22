@@ -1,0 +1,21 @@
+{
+    "name": "mabslabs/api-choufli-7all",
+    "description": "It's a REST API that returns quotes from the Tunisian TV series Choufli 7all.",
+    "type": "project",
+    "require": {
+        "mabslabs/mabs": "^2.1"
+    },
+    "license": "GPL-3.0 license",
+    "autoload": {
+        "psr-4": {
+            "Mabslabs\\ApiChoufli7all\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mohamed Aymen",
+            "email": "aymen.kernel@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
