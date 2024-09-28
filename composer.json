@@ -6,7 +6,7 @@
         "mabslabs/mabs": "^2.1",
       "ext-pdo": "*"
     },
-    "license": "GPL-3.0 license",
+    "license": "AGPL-3.0-or-later",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
