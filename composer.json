@@ -1,5 +1,5 @@
 {
-    "name": "Api-choufli-7all",
+    "name": "mabslabs/Api-choufli-7all",
     "description": "It's a REST API that returns quotes from the Tunisian TV series Choufli 7all.",
     "type": "project",
     "require": {
