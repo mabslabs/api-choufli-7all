@@ -3,12 +3,13 @@
     "description": "It's a REST API that returns quotes from the Tunisian TV series Choufli 7all.",
     "type": "project",
     "require": {
-        "mabslabs/mabs": "^2.1"
+        "mabslabs/mabs": "^2.1",
+      "ext-pdo": "*"
     },
     "license": "GPL-3.0 license",
     "autoload": {
         "psr-4": {
-            "Mabslabs\\ApiChoufli7all\\": "src/"
+            "App\\": "src/"
         }
     },
     "authors": [
