@@ -10,7 +10,7 @@ $app = new App\APIChoufli7allApp();
 $container = $app->getContainer();
 
 $app->get('/', function () {
-    new JsonResponse(['version' => '1.0']);
+    return new JsonResponse(['version' => '1.0']);
 });
 
 $app->get('random', function () use ($container) {
