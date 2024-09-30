@@ -37,3 +37,24 @@ jobs:
 
     # - name: Run test suite
     #   run: composer run-script test
+    
+    # Deploy FTP
+    - name: Deploy FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        ftp-server: ftp://mabslabs.com
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASS }}
+        local-dir: ./
+        server-dir: /api
+        excludes: |
+          .git*
+          /tests
+          /.env
+          /composer.*
+          /README.md
+          /config.simple.php
+          /db
+          /quotes
+          
+          
