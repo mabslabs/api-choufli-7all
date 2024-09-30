@@ -63,8 +63,6 @@ jobs:
           LICENSE
           config.simple.php
           db
-          quotes
           db/**
-          quotes/**
 
           
