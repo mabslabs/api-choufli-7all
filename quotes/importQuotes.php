@@ -22,7 +22,9 @@ try {
     die('Erreur de connexion : ' . $e->getMessage());
 }
 
-
+// trancate table
+$sql = 'TRUNCATE TABLE quotes';
+$pdo->exec($sql);
 
 // get all .txt files
 $files = glob($quotesDir . '/*.txt');
