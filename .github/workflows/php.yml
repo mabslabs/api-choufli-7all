@@ -64,5 +64,6 @@ jobs:
           config.simple.php
           db
           db/**
+          quotes/import***
 
           
