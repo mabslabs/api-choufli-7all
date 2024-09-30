@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Build and Deploy
 
 on:
   push:
@@ -58,12 +58,13 @@ jobs:
         exclude: |
           **/.git*
           **/.git*/**
-          /tests
-          /.env
-          /composer.*
-          /README.md
-          /config.simple.php
-          /db
-          /quotes
+          composer.*
+          README.md
+          LICENSE
+          config.simple.php
+          db
+          quotes
+          db/**
+          quotes/**
 
           
