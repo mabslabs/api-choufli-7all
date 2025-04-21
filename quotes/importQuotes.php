@@ -36,7 +36,9 @@ foreach ($files as $file) {
     if (isset($actorsArray[$slug])) {
         $actorId = $actorsArray[$slug];
 
-        $quotes = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $fileContent = getGithubRawFileContent('https://raw.githubusercontent.com/mabslabs/api-choufli-7all/main/quotes/raw/'.$slug.'.txt');
+
+        $quotes = array_filter(array_map('trim', explode("\n", (string) $fileContent)));
 
         foreach ($quotes as $quote) {
 
@@ -48,6 +50,35 @@ foreach ($files as $file) {
     } else {
         echo "No actor found for slug: $slug\n";
     }
+}
+
+/**
+ * Read file from github
+ *
+ * @param [type] $url
+ * @return void
+ */
+function getGithubRawFileContent($url) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);  // suit les redirections (utile pour GitHub)
+    curl_setopt($ch, CURLOPT_TIMEOUT, 15);           // limite de temps
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0'); // GitHub exige souvent un User-Agent
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    curl_close($ch);
+
+    if ($response === false) {
+        die('Erreur cURL : ' . $error);
+    }
+
+    if ($httpCode !== 200) {
+        die('Fichier inaccessible, code HTTP : ' . $httpCode);
+    }
+
+    return $response;
 }
 
 
